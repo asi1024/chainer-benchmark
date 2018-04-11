@@ -68,6 +68,7 @@
         "fastrlock": [],
         // Optional dependencies required for benchmark.
         "ideep4py": [],
+        "cupy": [],
     },
 
     // Combinations of libraries/python versions can be excluded/included
