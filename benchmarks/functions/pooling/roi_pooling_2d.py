@@ -4,15 +4,16 @@ import chainer.functions as F
 
 from benchmarks.functions import FunctionBenchmark
 from benchmarks.utils import backends
+from benchmarks.utils import parameterize
 
 
 @backends('gpu', 'cpu')
+@parameterize([('batches', [1, 16])])
 class ROIPooling2D(FunctionBenchmark):
-    def setup(self):
+    def setup(self, batches):
         xp = self.xp
 
         # Prepare test data.
-        batches = 16
         channels = 4
         x_size = (128, 128)
         out_size = (32, 32)
@@ -36,8 +37,8 @@ class ROIPooling2D(FunctionBenchmark):
         self.setup_benchmark(F.roi_pooling_2d,
                              (x, rois) + out_size + (spatial_scale,), gy)
 
-    def time_forward(self):
+    def time_forward(self, batches):
         self.forward()
 
-    def time_backward(self):
+    def time_backward(self, batches):
         self.backward()
