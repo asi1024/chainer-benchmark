@@ -15,7 +15,7 @@ class SpatialPyramidPooling2D(FunctionBenchmark):
 
         # Prepare test data.
         channels = 4
-        x_size = (128, 128)
+        x_size = (2048, 2048)
         pyramid_height = 4
         output_dim = 340
 
@@ -30,7 +30,7 @@ class SpatialPyramidPooling2D(FunctionBenchmark):
 
         # Setup benchmark.
         self.setup_benchmark(F.spatial_pyramid_pooling_2d,
-                             (x, pyramid_height, None, 'max'), gy)
+                             (x, pyramid_height, 'max'), gy)
 
     def time_forward(self, batches):
         self.forward()

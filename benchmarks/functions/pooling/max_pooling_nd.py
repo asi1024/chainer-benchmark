@@ -13,7 +13,7 @@ class MaxPoolingND(FunctionBenchmark):
 
         # Prepare test data.
         channels = 4
-        x_size = (32, 32, 16, 16)
+        x_size = (64, 64, 32, 32)
         ksize = 4
 
         out_size = tuple([int(x / ksize) for x in x_size])

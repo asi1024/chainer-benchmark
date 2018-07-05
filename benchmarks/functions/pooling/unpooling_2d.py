@@ -17,7 +17,7 @@ class Unpooling2D(FunctionBenchmark):
 
         # Prepare test data.
         channels = 4
-        ih, iw = (128, 128)
+        ih, iw = (2048, 2048)
         ksize = 4
 
         oh = conv.get_deconv_outsize(ih, ksize, ksize, 0, cover_all=True)

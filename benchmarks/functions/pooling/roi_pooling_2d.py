@@ -8,15 +8,15 @@ from benchmarks.utils import parameterize
 
 
 @backends('gpu', 'cpu')
-@parameterize([('batches', [1, 16])])
+@parameterize([('batches', [16])])
 class ROIPooling2D(FunctionBenchmark):
     def setup(self, batches):
         xp = self.xp
 
         # Prepare test data.
         channels = 4
-        x_size = (128, 128)
-        out_size = (32, 32)
+        x_size = (2048, 2048)
+        out_size = (128, 128)
         rois = xp.array([
             [0, 1, 1, 6, 6],
             [2, 6, 2, 7, 11],

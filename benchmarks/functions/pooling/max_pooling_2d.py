@@ -13,7 +13,7 @@ class MaxPooling2D(FunctionBenchmark):
 
         # Prepare test data.
         channels = 4
-        x_size = (128, 128)
+        x_size = (2048, 2048)
         ksize = 4
 
         out_size = tuple([int(x / ksize) for x in x_size])
