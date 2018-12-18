@@ -1,6 +1,7 @@
 import six
 
 import chainer
+import cupy
 
 from benchmarks import BenchmarkBase
 
@@ -38,6 +39,8 @@ class OptimizerBenchmark(BenchmarkBase):
         x = xp.random.uniform(-1, 1, (batch_size, unit_num)).astype(dtype)
         param = xp.random.uniform(-1, 1, unit_num).astype(dtype)
         model = Link(param)
+        if xp is cupy:
+            model.to_gpu()
 
         x = chainer.Variable(x)
         y = model(x)
