@@ -47,6 +47,7 @@ class OptimizerBenchmark(BenchmarkBase):
         y.zerograd()
         y.backward()
         optimizer.setup(model)
+        optimizer.update()
 
     def update(self, n_times):
         """Runs optimizer.update()."""
